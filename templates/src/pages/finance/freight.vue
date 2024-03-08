@@ -148,36 +148,38 @@
              <q-td key="update_time" :props="props">
                {{ props.row.update_time }}
              </q-td>
-             <template v-if="!editMode">
-               <q-td key="action" :props="props" style="width: 100px">
-                 <q-btn round flat push color="purple" icon="edit" @click="editData(props.row)">
-                   <q-tooltip content-class="bg-amber text-black shadow-4" :offset="[10, 10]" content-style="font-size: 12px">
-                    {{ $t('edit') }}
-                  </q-tooltip>
-                 </q-btn>
-                 <q-btn round flat push color="dark" icon="delete" @click="deleteData(props.row.id)">
-                   <q-tooltip content-class="bg-amber text-black shadow-4" :offset="[10, 10]" content-style="font-size: 12px">
-                    {{ $t('delete') }}
-                  </q-tooltip>
-                 </q-btn>
-               </q-td>
-               </template>
-             <template v-else-if="editMode">
-               <template v-if="props.row.id === editid">
-                 <q-td key="action" :props="props" style="width: 100px">
-                 <q-btn round flat push color="secondary" icon="check" @click="editDataSubmit()">
-                   <q-tooltip content-class="bg-amber text-black shadow-4" :offset="[10, 10]" content-style="font-size: 12px">
-                    {{ $t('confirmedit') }}
-                  </q-tooltip>
-                 </q-btn>
-                 <q-btn round flat push color="red" icon="close" @click="editDataCancel()">
-                   <q-tooltip content-class="bg-amber text-black shadow-4" :offset="[10, 10]" content-style="font-size: 12px">
-                    {{ $t('canceledit') }}
-                  </q-tooltip>
-                 </q-btn>
-               </q-td>
-               </template>
-                <template v-else-if="props.row.id !== editid"></template>
+             <template v-if="$q.localStorage.getItem('staff_type') == 'Admin'">
+              <template v-if="!editMode">
+                <q-td key="action" :props="props" style="width: 100px">
+                  <q-btn round flat push color="purple" icon="edit" @click="editData(props.row)">
+                    <q-tooltip content-class="bg-amber text-black shadow-4" :offset="[10, 10]" content-style="font-size: 12px">
+                      {{ $t('edit') }}
+                    </q-tooltip>
+                  </q-btn>
+                  <q-btn round flat push color="dark" icon="delete" @click="deleteData(props.row.id)">
+                    <q-tooltip content-class="bg-amber text-black shadow-4" :offset="[10, 10]" content-style="font-size: 12px">
+                      {{ $t('delete') }}
+                    </q-tooltip>
+                  </q-btn>
+                </q-td>
+                </template>
+              <template v-else-if="editMode">
+                <template v-if="props.row.id === editid">
+                  <q-td key="action" :props="props" style="width: 100px">
+                  <q-btn round flat push color="secondary" icon="check" @click="editDataSubmit()">
+                    <q-tooltip content-class="bg-amber text-black shadow-4" :offset="[10, 10]" content-style="font-size: 12px">
+                      {{ $t('confirmedit') }}
+                    </q-tooltip>
+                  </q-btn>
+                  <q-btn round flat push color="red" icon="close" @click="editDataCancel()">
+                    <q-tooltip content-class="bg-amber text-black shadow-4" :offset="[10, 10]" content-style="font-size: 12px">
+                      {{ $t('canceledit') }}
+                    </q-tooltip>
+                  </q-btn>
+                </q-td>
+                </template>
+                  <template v-else-if="props.row.id !== editid"></template>
+              </template>
              </template>
            </q-tr>
          </template>

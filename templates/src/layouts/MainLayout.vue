@@ -23,137 +23,6 @@
         <q-space />
         <transition appear enter-active-class="animated zoomIn">
           <q-btn
-            v-show="lang !== 'zh-hans'"
-            icon="img:statics/icons/IOS.png"
-            round
-            dense
-            flat
-            @click="brownlink('https://www.56yhz.com/ios.html')"
-            style="margin: 0 10px 0 10px"
-          >
-            <q-tooltip
-              content-class="bg-amber text-black shadow-4"
-              :offset="[15, 15]"
-              content-style="font-size: 12px"
-              >IOS APP
-            </q-tooltip>
-          </q-btn>
-        </transition>
-        <transition appear enter-active-class="animated zoomIn">
-          <q-btn
-            v-show="lang === 'zh-hans'"
-            icon="img:statics/icons/IOS.png"
-            round
-            dense
-            flat
-            @click="brownlink('https://www.56yhz.com/zh/ios.html')"
-            style="margin: 0 10px 0 10px"
-          >
-            <q-tooltip
-              content-class="bg-amber text-black shadow-4"
-              :offset="[15, 15]"
-              content-style="font-size: 12px"
-              >IOS APP
-            </q-tooltip>
-          </q-btn>
-        </transition>
-        <transition appear enter-active-class="animated zoomIn">
-          <q-btn
-            v-show="lang !== 'zh-hans'"
-            icon="img:statics/icons/android.png"
-            round
-            dense
-            flat
-            @click="brownlink('https://www.56yhz.com/android.html')"
-            style="margin: 0 10px 0 10px"
-          >
-            <q-tooltip
-              content-class="bg-amber text-black shadow-4"
-              :offset="[15, 15]"
-              content-style="font-size: 12px"
-              >Android APP
-            </q-tooltip>
-          </q-btn>
-        </transition>
-        <transition appear enter-active-class="animated zoomIn">
-          <q-btn
-            v-show="lang === 'zh-hans'"
-            icon="img:statics/icons/android.png"
-            round
-            dense
-            flat
-            @click="brownlink('https://www.56yhz.com/zh/android.html')"
-            style="margin: 0 10px 0 10px"
-          >
-            <q-tooltip
-              content-class="bg-amber text-black shadow-4"
-              :offset="[15, 15]"
-              content-style="font-size: 12px"
-              >Android APP
-            </q-tooltip>
-          </q-btn>
-        </transition>
-        <transition appear enter-active-class="animated zoomIn">
-          <q-btn
-            icon="img:statics/icons/GitHub.png"
-            round
-            dense
-            flat
-            @click="brownlink('https://github.com/GreaterWMS/GreaterWMS')"
-            style="margin: 0 10px 0 10px"
-          >
-            <q-tooltip
-              content-class="bg-amber text-black shadow-4"
-              :offset="[15, 15]"
-              content-style="font-size: 12px"
-              >GitHub Link</q-tooltip
-            >
-          </q-btn>
-        </transition>
-        <transition appear enter-active-class="animated zoomIn">
-          <q-btn
-            icon="api"
-            round
-            dense
-            flat
-            @click="apiLink()"
-            style="margin: 0 10px 0 10px"
-          >
-            <q-tooltip
-              content-class="bg-amber text-black shadow-4"
-              :offset="[15, 15]"
-              content-style="font-size: 12px"
-              >{{ $t('index.api') }}</q-tooltip
-            >
-          </q-btn>
-        </transition>
-        <transition appear enter-active-class="animated zoomIn">
-          <q-btn
-            square
-            dense
-            flat
-            color="white"
-            :label="warehouse_name"
-            icon="maps_home_work"
-            style="margin: 0 10px 0 10px"
-          >
-            <q-menu>
-              <q-list style="min-width: 100px">
-                <q-item
-                  clickable
-                  v-close-popup
-                  v-for="(warehouse, index) in warehouseOptions"
-                  :key="index"
-                  @click="warehouseChange(index)"
-                >
-                  <q-item-section>{{ warehouse.warehouse_name }}</q-item-section>
-                </q-item>
-              </q-list>
-            </q-menu>
-          </q-btn>
-        </transition>
-        <transition appear enter-active-class="animated zoomIn">
-          <q-btn
             round
             dense
             flat
@@ -269,21 +138,6 @@
                 :offset="[15, 15]"
                 content-style="font-size: 12px"
                 >{{ $t("index.login_tip") }}</q-tooltip
-              >
-            </q-btn>
-          </transition>
-          <transition appear enter-active-class="animated zoomIn">
-            <q-btn
-              :label="$t('index.register')"
-              color="primary"
-              @click="register = true"
-              style="margin-left: 10px"
-            >
-              <q-tooltip
-                content-class="bg-amber text-black shadow-4"
-                :offset="[15, 15]"
-                content-style="font-size: 12px"
-                >{{ $t("index.register_tip") }}</q-tooltip
               >
             </q-btn>
           </transition>
@@ -465,6 +319,21 @@
               ><q-icon name="file_download"
             /></q-item-section>
             <q-item-section>{{ $t("menuItem.downloadcenter") }}</q-item-section>
+          </q-item>
+          <q-separator/>
+          <q-item
+            clickable
+            :to="{ name: 'warehouselist' }"
+            @click="linkChange('warehouselist')"
+            v-ripple
+            exact
+            :active="link === 'warehouselist' && link !== ''"
+            :class="{'my-menu-link': link === 'warehouselist' && link !== '',}"
+          >
+            <q-item-section avatar>
+              <q-icon name="warehouse"/>
+            </q-item-section>
+            <q-item-section>{{ $t("menuItem.cloudwarehouse") }}</q-item-section>
           </q-item>
         </q-list>
       </q-scroll-area>
@@ -707,6 +576,14 @@
               />
             </template>
           </q-input>
+          <q-input
+            dense
+            outlined
+            square
+            v-model="registerform.registercode"
+            autofocus
+            @keyup.enter="Register()"
+          />
         </q-card-section>
         <q-card-actions align="right" class="text-primary q-mx-sm"
           ><q-btn
@@ -952,6 +829,16 @@ export default {
       }, 1)
     },
     Register () {
+      if (this.registerform.registercode == '2050'){
+          this.$q.notify({
+            message: 'register code is wrong',
+            icon: 'close',
+            color: 'negative'
+          })
+
+        return
+      }
+
       var _this = this
       SessionStorage.set('axios_check', 'false')
       post('register/', _this.registerform)
@@ -969,7 +856,8 @@ export default {
             _this.registerform = {
               name: '',
               password1: '',
-              password2: ''
+              password2: '',
+              registercode: ''
             }
             _this.$q.notify({
               message: res.msg,

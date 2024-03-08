@@ -85,24 +85,26 @@
             <q-td key="difference" :props="props">{{
               props.row.physical_inventory - props.row.goods_qty
             }}</q-td>
-            <q-td key="action" :props="props" style="width: 50px">
-              <q-btn
-                round
-                flat
-                push
-                color="purple"
-                icon="repeat"
-                @click="props.row.physical_inventory = 0"
-              >
-                <q-tooltip
-                  content-class="bg-amber text-black shadow-4"
-                  :offset="[10, 10]"
-                  content-style="font-size: 12px"
+            <template v-if="$q.localStorage.getItem('staff_type') == 'Admin'">
+              <q-td key="action" :props="props" style="width: 50px">
+                <q-btn
+                  round
+                  flat
+                  push
+                  color="purple"
+                  icon="repeat"
+                  @click="props.row.physical_inventory = 0"
                 >
-                  {{ $t("stock.view_stocklist.recyclecounttip") }}
-                </q-tooltip>
-              </q-btn>
-            </q-td>
+                  <q-tooltip
+                    content-class="bg-amber text-black shadow-4"
+                    :offset="[10, 10]"
+                    content-style="font-size: 12px"
+                  >
+                    {{ $t("stock.view_stocklist.recyclecounttip") }}
+                  </q-tooltip>
+                </q-btn>
+              </q-td>
+            </template>
           </q-tr>
         </template>
       </q-table>

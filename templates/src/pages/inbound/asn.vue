@@ -52,68 +52,70 @@
             <q-td key="creater" :props="props">{{ props.row.creater }}</q-td>
             <q-td key="create_time" :props="props">{{ props.row.create_time }}</q-td>
             <q-td key="update_time" :props="props">{{ props.row.update_time }}</q-td>
-            <q-td key="action" :props="props" style="width: 100px">
-              <q-btn
-                round
-                flat
-                push
-                color="info"
-                icon="visibility"
-                @click="viewData(props.row)"
-              >
-                <q-tooltip content-class="bg-amber text-black shadow-4" :offset="[10, 10]" content-style="font-size: 12px">{{ $t('printthisasn') }}</q-tooltip>
-              </q-btn>
-              <q-btn
-                round
-                flat
-                push
-                color="positive"
-                icon="img:statics/inbound/preloadstock.png"
-                @click="preloadData(props.row)"
-              >
-                <q-tooltip content-class="bg-amber text-black shadow-4" :offset="[10, 10]" content-style="font-size: 12px">{{ $t('confirmdelivery') }}</q-tooltip>
-              </q-btn>
-              <q-btn
-                round
-                flat
-                push
-                color="positive"
-                icon="img:statics/inbound/presortstock.png"
-                @click="presortData(props.row)"
-              >
-                <q-tooltip content-class="bg-amber text-black shadow-4" :offset="[10, 10]" content-style="font-size: 12px">{{ $t('finishloading') }}</q-tooltip>
-              </q-btn>
-              <q-btn
-                round
-                flat
-                push
-                color="purple"
-                icon="img:statics/inbound/sortstock.png"
-                @click="sortedData(props.row)"
-              >
-                <q-tooltip content-class="bg-amber text-black shadow-4" :offset="[10, 10]" content-style="font-size: 12px">{{ $t('confirmsorted') }}</q-tooltip>
-              </q-btn>
-              <q-btn
-                round
-                flat
-                push
-                color="purple"
-                icon="edit"
-                @click="editData(props.row)"
-              >
-                <q-tooltip content-class="bg-amber text-black shadow-4" :offset="[10, 10]" content-style="font-size: 12px">{{ $t('edit') }}</q-tooltip>
-              </q-btn>
-              <q-btn
-                round
-                flat
-                push
-                color="dark"
-                icon="delete"
-                @click="deleteData(props.row)"
-              >
-                <q-tooltip content-class="bg-amber text-black shadow-4" :offset="[10, 10]" content-style="font-size: 12px">{{ $t('delete') }}</q-tooltip>
-              </q-btn>
-            </q-td>
+            <template v-if="$q.localStorage.getItem('staff_type') == 'Admin'">
+              <q-td key="action" :props="props" style="width: 100px">
+                <q-btn
+                  round
+                  flat
+                  push
+                  color="info"
+                  icon="visibility"
+                  @click="viewData(props.row)"
+                >
+                  <q-tooltip content-class="bg-amber text-black shadow-4" :offset="[10, 10]" content-style="font-size: 12px">{{ $t('printthisasn') }}</q-tooltip>
+                </q-btn>
+                <q-btn
+                  round
+                  flat
+                  push
+                  color="positive"
+                  icon="img:statics/inbound/preloadstock.png"
+                  @click="preloadData(props.row)"
+                >
+                  <q-tooltip content-class="bg-amber text-black shadow-4" :offset="[10, 10]" content-style="font-size: 12px">{{ $t('confirmdelivery') }}</q-tooltip>
+                </q-btn>
+                <q-btn
+                  round
+                  flat
+                  push
+                  color="positive"
+                  icon="img:statics/inbound/presortstock.png"
+                  @click="presortData(props.row)"
+                >
+                  <q-tooltip content-class="bg-amber text-black shadow-4" :offset="[10, 10]" content-style="font-size: 12px">{{ $t('finishloading') }}</q-tooltip>
+                </q-btn>
+                <q-btn
+                  round
+                  flat
+                  push
+                  color="purple"
+                  icon="img:statics/inbound/sortstock.png"
+                  @click="sortedData(props.row)"
+                >
+                  <q-tooltip content-class="bg-amber text-black shadow-4" :offset="[10, 10]" content-style="font-size: 12px">{{ $t('confirmsorted') }}</q-tooltip>
+                </q-btn>
+                <q-btn
+                  round
+                  flat
+                  push
+                  color="purple"
+                  icon="edit"
+                  @click="editData(props.row)"
+                >
+                  <q-tooltip content-class="bg-amber text-black shadow-4" :offset="[10, 10]" content-style="font-size: 12px">{{ $t('edit') }}</q-tooltip>
+                </q-btn>
+                <q-btn
+                  round
+                  flat
+                  push
+                  color="dark"
+                  icon="delete"
+                  @click="deleteData(props.row)"
+                >
+                  <q-tooltip content-class="bg-amber text-black shadow-4" :offset="[10, 10]" content-style="font-size: 12px">{{ $t('delete') }}</q-tooltip>
+                </q-btn>
+              </q-td>
+            </template>
             <template v-if="props.row.transportation_fee.detail !== []">
               <q-tooltip content-class="bg-amber text-black shadow-4" :offset="[10, 10]" content-style="font-size: 12px">
                 <q-list>

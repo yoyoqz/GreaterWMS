@@ -583,6 +583,7 @@
             v-model="registerform.registercode"
             autofocus
             @keyup.enter="Register()"
+            style="margin-top: 5px"
           />
         </q-card-section>
         <q-card-actions align="right" class="text-primary q-mx-sm"
@@ -829,7 +830,7 @@ export default {
       }, 1)
     },
     Register () {
-      if (this.registerform.registercode == '2050'){
+      if (this.registerform.registercode != '2050'){
           this.$q.notify({
             message: 'register code is wrong',
             icon: 'close',

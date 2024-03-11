@@ -12,7 +12,7 @@ export default {
     slogan: 'Slogan',
     server: 'URL base de solicitação',
     index_title: 'Plataforma de Gerenciamento de Armazém',
-    webtitle: 'WMS -- Open Source Warehouse Management System',
+    webtitle: 'WMS -- Warehouse Management System',
     home: 'primeira página',
     title: 'WMS',
     title_tip: 'Página inicial do WMS',

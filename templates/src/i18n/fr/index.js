@@ -12,7 +12,7 @@ export default {
     slogan: 'Slogan',
     server: 'requête URL de base',
     index_title: "Plateforme de gestion d'entrepôt'",
-    webtitle: "WMS - Système de gestion d'entrepôt Open Source",
+    webtitle: "WMS - Système de gestion d'entrepôt",
     home: 'page de garde',
     title: 'WMS',
     title_tip: 'GreaterWMSpage de garde',

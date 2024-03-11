@@ -162,8 +162,8 @@ module.exports = function (/* ctx */) {
       workboxOptions: {}, // only for GenerateSW
       manifest: {
         name: 'wms templates',
-        short_name: 'GreaterWMS--Open Source Warehouse Management System',
-        description: 'GreaterWMS--Open Source Warehouse Management System',
+        short_name: 'WMS--Warehouse Management System',
+        description: 'WMS--Warehouse Management System',
         display: 'standalone',
         orientation: 'portrait',
         background_color: '#ffffff',

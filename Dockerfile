@@ -15,14 +15,14 @@ RUN apt-get install supervisor -y
 #Configure pip3 Alibaba Source
 #RUN pip3 config set global.index-url http://mirrors.aliyun.com/pypi/simple/
 #RUN pip3 config set install.trusted-host mirrors.aliyun.com
-RUN python3 -m pip install --upgrade pip
+#RUN python3 -m pip install --upgrade pip
 #Install supervisor daphne
 RUN pip3 install supervisor
 RUN pip3 install -U 'Twisted[tls,http2]'
 RUN pip3 install -r requirements.txt
 RUN pip3 install daphne
-RUN chmod +x /GreaterWMS/backend_start.sh
-CMD ["/GreaterWMS/backend_start.sh"]
+#RUN chmod +x /GreaterWMS/backend_start.sh
+#CMD ["/GreaterWMS/backend_start.sh"]
 
 FROM --platform=linux/amd64 node:14.19.3-buster-slim AS front
 COPY ./templates/package.json /GreaterWMS/templates/package.json

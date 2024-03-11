@@ -156,21 +156,6 @@
         <q-list>
           <q-item
             clickable
-            :to="{ name: 'outbounddashboard' }"
-            @click="linkChange('outbounddashboard')"
-            v-ripple
-            exact
-            :active="link === 'outbounddashboard' && link !== ''"
-            :class="{
-              'my-menu-link': link === 'outbounddashboard' && link !== '',
-            }"
-          >
-            <q-item-section avatar><q-icon name="auto_graph" /></q-item-section>
-            <q-item-section>{{ $t("menuItem.dashboard") }}</q-item-section>
-          </q-item>
-          <q-separator />
-          <q-item
-            clickable
             :to="{ name: 'asn' }"
             @click="linkChange('inbound')"
             v-ripple
@@ -210,20 +195,6 @@
             <q-item-section>{{ $t("menuItem.stock") }}</q-item-section>
           </q-item>
           <q-separator />
-          <q-item
-            clickable
-            :to="{ name: 'capitallist' }"
-            @click="linkChange('finance')"
-            v-ripple
-            exact
-            :active="link === 'finance' && link !== ''"
-            :class="{ 'my-menu-link': link === 'finance' && link !== '' }"
-          >
-            <q-item-section avatar
-              ><q-icon name="devices_other"
-            /></q-item-section>
-            <q-item-section>{{ $t("menuItem.finance") }}</q-item-section>
-          </q-item>
           <q-item
             clickable
             :to="{ name: 'goodslist' }"
@@ -274,66 +245,6 @@
               ><q-icon name="assignment_ind"
             /></q-item-section>
             <q-item-section>{{ $t("menuItem.staff") }}</q-item-section>
-          </q-item>
-          <q-item
-            clickable
-            :to="{ name: 'driverlist' }"
-            @click="linkChange('driver')"
-            v-ripple
-            exact
-            :active="link === 'driver' && link !== ''"
-            :class="{ 'my-menu-link': link === 'driver' && link !== '' }"
-          >
-            <q-item-section avatar
-              ><q-icon name="transfer_within_a_station"
-            /></q-item-section>
-            <q-item-section>{{ $t("menuItem.driver") }}</q-item-section>
-          </q-item>
-          <q-separator />
-          <q-item
-            clickable
-            :to="{ name: 'initializeupload' }"
-            @click="linkChange('uploadcenter')"
-            v-ripple
-            exact
-            :active="link === 'uploadcenter' && link !== ''"
-            :class="{ 'my-menu-link': link === 'uploadcenter' && link !== '' }"
-          >
-            <q-item-section avatar
-              ><q-icon name="file_upload"
-            /></q-item-section>
-            <q-item-section>{{ $t("menuItem.uploadcenter") }}</q-item-section>
-          </q-item>
-          <q-item
-            clickable
-            :to="{ name: 'downloadinbound' }"
-            @click="linkChange('downloadcenter')"
-            v-ripple
-            exact
-            :active="link === 'downloadcenter' && link !== ''"
-            :class="{
-              'my-menu-link': link === 'downloadcenter' && link !== '',
-            }"
-          >
-            <q-item-section avatar
-              ><q-icon name="file_download"
-            /></q-item-section>
-            <q-item-section>{{ $t("menuItem.downloadcenter") }}</q-item-section>
-          </q-item>
-          <q-separator/>
-          <q-item
-            clickable
-            :to="{ name: 'warehouselist' }"
-            @click="linkChange('warehouselist')"
-            v-ripple
-            exact
-            :active="link === 'warehouselist' && link !== ''"
-            :class="{'my-menu-link': link === 'warehouselist' && link !== '',}"
-          >
-            <q-item-section avatar>
-              <q-icon name="warehouse"/>
-            </q-item-section>
-            <q-item-section>{{ $t("menuItem.cloudwarehouse") }}</q-item-section>
           </q-item>
         </q-list>
       </q-scroll-area>

@@ -61,7 +61,7 @@
             <q-td key="creater" :props="props">{{ props.row.creater }}</q-td>
             <q-td key="create_time" :props="props">{{ props.row.create_time }}</q-td>
             <q-td key="update_time" :props="props">{{ props.row.update_time }}</q-td>
-            <template v-if="$q.localStorage.getItem('staff_type') == 'Admin'">
+            <template v-if="$q.localStorage.getItem('staff_type') == 'Admin' || $q.localStorage.getItem('staff_type') == 'Supervisor'">
               <template v-if="!editMode">
                 <q-td key="action" :props="props" style="width: 100px">
                   <q-btn round flat push color="purple" icon="edit" @click="editData(props.row)">

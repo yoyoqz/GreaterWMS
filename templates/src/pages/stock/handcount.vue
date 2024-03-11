@@ -85,7 +85,7 @@
             <q-td key="difference" :props="props">{{
               props.row.physical_inventory - props.row.goods_qty
             }}</q-td>
-            <template v-if="$q.localStorage.getItem('staff_type') == 'Admin'">
+            <template v-if="$q.localStorage.getItem('staff_type') == 'Admin' || $q.localStorage.getItem('staff_type') == 'Supervisor'">
               <q-td key="action" :props="props" style="width: 50px">
                 <q-btn
                   round

@@ -58,7 +58,7 @@
              <q-td key="update_time" :props="props">
                {{ props.row.update_time }}
              </q-td>
-             <template v-if="$q.localStorage.getItem('staff_type') == 'Admin'">
+             <template v-if="$q.localStorage.getItem('staff_type') == 'Admin' || $q.localStorage.getItem('staff_type') == 'Supervisor'">
               <q-td key="action" :props="props" style="width: 50px">
                 <q-btn round flat push color="dark" icon="delete" @click="deleteData(props.row)">
                   <q-tooltip content-class="bg-amber text-black shadow-4" :offset="[10, 10]" content-style="font-size: 12px">

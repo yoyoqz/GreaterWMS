@@ -7,34 +7,14 @@ services:
     #   context: ./
     #   dockerfile: Dockerfile
     #   target: front
-    container_name: greaterwms_front
+    container_name: greaterwms_front_lite
     image: greaterwms/greaterwms:front
     restart: always
     privileged: true
     ports:
       - '9000:9000'
-    depends_on:
-      - backend
     volumes:
       - ./templates:/GreaterWMS/templates:rw
       - ./web_start.sh:/GreaterWMS/templates/web_start.sh
-    networks:
-      - basic
-  backend:
-    # build:
-    #   context: ./
-    #   dockerfile: Dockerfile
-    #   target: backend
-    container_name: greaterwms_backend
-    image: greaterwms/greaterwms:backend
-    restart: always
-    privileged: true
-    volumes:
-      - ./:/GreaterWMS/:rw
-      - ./supervisord.conf:/etc/supervisor/supervisord.conf
-    ports:
-      - '8008:8008'
-    environment:
-      PYTHONUNBUFFERED: 1
     networks:
       - basic
